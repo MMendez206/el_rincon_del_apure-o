@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,500&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+        "menu"
+        "buscar"
+        "galeria"
+        "pie-de-pagina";
+}
+
+/* Estilos al Menú */
+
+li {
+    list-style: none;
+}
+
+li>a {
+    text-decoration: none;
+}
+
+.nav {
+    background: #87cefa;
+    grid-area: menu;
+}
+
+.navbar {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #bebebe;
+}
+
+.navbar > a {
+    text-decoration: none;
+}
+
+.nav__mobile {
+    color: #fff;
+    border: 1px solid #fff;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.brand__link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.nav__container {
+    background: #87cefa;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.4s ease;
+}
+
+.nav__link {
+    color: #fff;
+}
+
+#navbar:target .nav__container {
+    height: 100px;
+}
+
+#navbar:target .open {
+    display: none;
+}
+
+#navbar:target .close {
+    display: flex;
+}
+
+.close {
+    display: none;
+}
+
+/* Buscador */
+
+.filtro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    height: 100px;
+    grid-area: buscar;
+}
+
+.filtro > select {
+    width: 250px;
+    height: 30px;
+    transition: .5s;
+}
+
+/* Galeria */
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    grid-area: galeria;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+    border: .5px solid #333
+}
+
+.card > img {
+    width: 100%;
+}
+
+.card > .card-text {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+}
+
+.card > .card-text > h3 {
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.card > .card-text > p {
+    font-size: 15px;
+}
+
+.card-text > button {
+    padding: 10px 25px;
+    border-radius: 10px;
+    border: none;
+}
+
+/* Selector */
+
+.selector {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+}
+
+.selector > ul {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    grid-area: selector;
+}
+
+/* Pie de Página */
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 15px;
+    padding: 20px;
+    background: #357aa5;
+    color: #fff;
+    grid-area: pie-de-pagina;
+}
+
+footer > span {
+    font-size: 15px;
+    font-weight: 900;
+}
+
+/* Media Queries */
+
+@media (min-width: 576px) {
+    body {
+        grid-template-columns: 200px auto;
+        grid-template-areas:
+            "menu buscar"
+            "menu galeria"
+            "menu galeria"
+            "pie-de-pagina galeria"
+        ;
+        height: 100vh;
+    }
+}
+
+/* Menú */
+
+@media (min-width: 576px) {
+    .nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .brand__link {
+        display: flex;
+    }
+
+    .nav__mobile {
+        display: none;
+    }
+
+    .nav__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        text-align: center;
+        gap: 15px;
+        height: 100%;
+        height: 100%;
+    }
+
+    .nav__container > .nav__item {
+        width: 100%;
+        padding: 10px;
+    }
+
+    nav > ul > li:hover {
+        background-color: #fff;
+        transition: .25s;
+    }
+
+    nav > ul > li:hover > a {
+        color: #000;
+        transition: .25s;
+    }
+}
+
+/* Galeria */
+
+@media (min-width: 576px) {
+    .gallery {
+        overflow-y: scroll;
+    }
+
+    .card {
+        width: 250px;
+    }
+}
+
+@media (min-width: 768px) {
+    .card {
+        width: 350px;
+    }
+}
